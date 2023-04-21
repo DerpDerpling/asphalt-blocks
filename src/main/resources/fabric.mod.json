@@ -1,34 +1,31 @@
 {
 	"schemaVersion": 1,
-	"id": "asphalt-blocks",
+	"id": "asphaltblocks",
 	"version": "${version}",
 	"name": "Asphalt Blocks",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Adds Asphalt Blocks in block, slab and carpet form",
 	"authors": [
-		"Me!"
+		"DerpDerpling"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/DerpDerpling/asphalt-blocks"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/asphalt-blocks/icon.png",
+	"icon": "assets/asphaltblocks/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"derp.asphaltblock.ExampleMod"
+			"derp.asphaltblocks.AsphaltBlocks"
+		],
+		"fabric-datagen": [
+			"derp.asphaltblocks.datagen.ModDataGeneration"
 		]
 	},
-	"mixins": [
-		"asphalt-blocks.mixins.json"
-	],
 	"depends": {
 		"fabricloader": ">=0.14.19",
 		"minecraft": "~1.19.2",
 		"java": ">=17",
 		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
 	}
 }
