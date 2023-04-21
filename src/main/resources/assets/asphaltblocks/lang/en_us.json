@@ -1,5 +1,6 @@
 {
   "block.asphaltblocks.asphalt_block": "Asphalt Block",
   "block.asphaltblocks.asphalt_carpet": "Asphalt Carpet",
-  "block.asphaltblocks.asphalt_slab": "Asphalt Slab"
+  "block.asphaltblocks.asphalt_slab": "Asphalt Slab",
+  "itemGroup.asphaltblocks.blocks": "Asphalt Blocks"
 }
