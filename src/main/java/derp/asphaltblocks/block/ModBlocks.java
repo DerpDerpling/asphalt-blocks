@@ -19,8 +19,8 @@ public class ModBlocks {
         return Registry.register(Registry.BLOCK, new Identifier(AsphaltBlocks.MOD_ID, name), block);
     }
 
-    public static final Block ASPHALT_BLOCK = registerBlock("asphalt_block", new Block (FabricBlockSettings.of(Material.STONE).strength(0.2f).sounds((BlockSoundGroup.DRIPSTONE_BLOCK))));
-    public static final Block ASPHALT_SLAB = registerBlock("asphalt_slab", new SlabBlock (FabricBlockSettings.of(Material.STONE).strength(0.2f).sounds((BlockSoundGroup.DRIPSTONE_BLOCK))));
+    public static final Block ASPHALT_BLOCK = registerBlock("asphalt_block", new Block (FabricBlockSettings.of(Material.STONE).strength(1f).sounds((BlockSoundGroup.DRIPSTONE_BLOCK))));
+    public static final Block ASPHALT_SLAB = registerBlock("asphalt_slab", new SlabBlock (FabricBlockSettings.of(Material.STONE).strength(0.5f).sounds((BlockSoundGroup.DRIPSTONE_BLOCK))));
     public static final Block ASPHALT_CARPET = registerBlock("asphalt_carpet", new CarpetBlock (FabricBlockSettings.of(Material.STONE).strength(0.2f).sounds((BlockSoundGroup.DRIPSTONE_BLOCK))));
 
     private static Item registerBlockItem(String name, Block block) {
