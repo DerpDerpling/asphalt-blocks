@@ -2,7 +2,8 @@ package derp.asphaltblocks;
 
 import derp.asphaltblocks.block.ModBlocks;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -15,15 +16,10 @@ public class AsphaltBlocks implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger("asphalt-blocks");
 	public static final String MOD_ID = "asphaltblocks";
-	public static final ItemGroup ASPHALT_BLOCK = FabricItemGroupBuilder.create(
-					new Identifier("asphaltblocks", "blocks"))
+	private static final ItemGroup ASPHALT_BLOCKS = FabricItemGroup.builder(new Identifier("asphaltblocks", "blocks"))
 			.icon(() -> new ItemStack(ModBlocks.ASPHALT_BLOCK))
-			.appendItems(stacks -> {
-				stacks.add(new ItemStack(ModBlocks.ASPHALT_BLOCK));
-				stacks.add(new ItemStack(ModBlocks.ASPHALT_SLAB));
-				stacks.add(new ItemStack(ModBlocks.ASPHALT_CARPET));
-			})
 			.build();
+
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -31,5 +27,10 @@ public class AsphaltBlocks implements ModInitializer {
 		// Proceed with mild caution.
 		ModBlocks.registerModBlocks();
 		LOGGER.info("Hello Fabric world!");
+		ItemGroupEvents.modifyEntriesEvent(ASPHALT_BLOCKS).register(content -> {
+			content.add(ModBlocks.ASPHALT_BLOCK);
+			content.add(ModBlocks.ASPHALT_SLAB);
+			content.add(ModBlocks.ASPHALT_CARPET);
+		});
 	}
 }

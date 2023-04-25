@@ -1,29 +1,20 @@
 package derp.asphaltblocks.datagen;
 
-import derp.asphaltblocks.AsphaltBlocks;
 import derp.asphaltblocks.block.ModBlocks;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableProvider;
-import net.minecraft.data.server.BlockLootTableGenerator;
-import net.minecraft.loot.LootTable;
-import net.minecraft.loot.context.LootContextType;
-import net.minecraft.loot.context.LootContextTypes;
-import net.minecraft.util.Identifier;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 
-import java.util.function.BiConsumer;
+public class ModLootTableGenerator extends FabricBlockLootTableProvider {
 
-public class ModLootTableGenerator extends SimpleFabricLootTableProvider {
-    public ModLootTableGenerator(FabricDataGenerator dataGenerator) {
-        super(dataGenerator, LootContextTypes.BLOCK);
+    public ModLootTableGenerator(FabricDataOutput dataOutput) {
+        super(dataOutput);
     }
 
     @Override
-    public void accept(BiConsumer<Identifier, LootTable.Builder> identifierBuilderBiConsumer) {
-        identifierBuilderBiConsumer.accept(new Identifier(AsphaltBlocks.MOD_ID, "blocks/asphalt_block"),
-                BlockLootTableGenerator.drops(ModBlocks.ASPHALT_BLOCK));
-        identifierBuilderBiConsumer.accept(new Identifier(AsphaltBlocks.MOD_ID, "blocks/asphalt_slab"),
-                BlockLootTableGenerator.drops(ModBlocks.ASPHALT_SLAB));
-        identifierBuilderBiConsumer.accept(new Identifier(AsphaltBlocks.MOD_ID, "blocks/asphalt_carpet"),
-                BlockLootTableGenerator.drops(ModBlocks.ASPHALT_CARPET));
+    public void generate() {
+        addDrop(ModBlocks.ASPHALT_BLOCK);
+        addDrop(ModBlocks.ASPHALT_SLAB);
+        addDrop(ModBlocks.ASPHALT_CARPET);
+
     }
 }
